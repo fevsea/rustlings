@@ -49,6 +49,13 @@ mod tests {
         );
     }
 
+    fn concat_all(
+        iter: impl Iterator<Item = String>,
+        s: &str
+    ) -> impl Iterator<Item = String> {
+        iter.map(move |s2| s2 + s)
+    }
+
     #[test]
     fn generate_alphabetic_report_card() {
         let report_card = ReportCard {
