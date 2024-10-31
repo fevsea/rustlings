@@ -24,14 +24,14 @@ fn some_func(item: impl SomeTrait + OtherTrait) -> bool {
     item.some_function() && item.other_function()
 }
 
-use std::fmt::Display;
+/*use std::fmt::Display;
 fn add_displayable<'a, T: Display + 'a>(
     v: &'a mut Vec<Box<dyn Display>> ,
     t: T
 ) {
     v.push(Box::new(t));
 }
-
+*/
 fn main() {
     // You can optionally experiment here.
 }

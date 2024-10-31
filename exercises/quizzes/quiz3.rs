@@ -11,15 +11,17 @@
 // Make the necessary code changes in the struct `ReportCard` and the impl
 // block to support alphabetical report cards in addition to numerical ones.
 
+use std::fmt;
+
 // TODO: Adjust the struct as described above.
-struct ReportCard {
-    grade: f32,
+struct ReportCard<T> {
+    grade: T,
     student_name: String,
     student_age: u8,
 }
 
 // TODO: Adjust the impl block as described above.
-impl ReportCard {
+impl<T: fmt::Display> ReportCard<T> {
     fn print(&self) -> String {
         format!(
             "{} ({}) - achieved a grade of {}",
@@ -48,13 +50,7 @@ mod tests {
             "Tom Wriggle (12) - achieved a grade of 2.1",
         );
     }
-
-    fn concat_all(
-        iter: impl Iterator<Item = String>,
-        s: &str
-    ) -> impl Iterator<Item = String> {
-        iter.map(move |s2| s2 + s)
-    }
+    
 
     #[test]
     fn generate_alphabetic_report_card() {
